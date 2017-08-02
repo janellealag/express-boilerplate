@@ -40,12 +40,12 @@ router.get('/', (req, res) => {
      * If the database part is enabled, then use the database module to query
      * from the database specified in your .env file.
      */
-    db.query('SELECT * FROM users', function (err, results, fields) {
+    db.query('SELECT * FROM dogtbl', function (err, results, fields) {
         /**
          * Temporarily, if there are errors, send the error as is.
          */
         if (err) return res.send(err);
-
+            //console.log(results);
         /**
          * If there are no errors, pass the results (which is an array) to the
          * render function.
@@ -56,7 +56,10 @@ router.get('/', (req, res) => {
     function render(users) {
         res.render('home/views/index', { users: users });
     }
+    
+    
 });
+
 
 /**
  * Here we just export said router on the 'index' property of this module.

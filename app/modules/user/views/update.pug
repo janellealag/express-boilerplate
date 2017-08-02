@@ -1,0 +1,25 @@
+extends ../../../templates/master.pug
+
+block content
+
+    
+        
+    form(method="POST" action="/users/update")
+    
+        .field
+            .label Name
+            .control
+                input.input(type="text" value= `${name}`
+                name="name")
+        .field
+            .label Age
+            .control
+                input.input(type="number" value=`${age}`          
+                name="age")
+                
+        .field
+            .label Breed
+            .control
+                input.input(type="text" value=`${breed}`      name="breed")
+                
+        input(type="submit" value="update")

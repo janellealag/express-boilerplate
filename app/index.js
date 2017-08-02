@@ -39,12 +39,19 @@ module.exports = app => {
      */
     fs.readdir(path.join(__dirname, modulesDir), (err, modules) => {
         if (err) throw err;
+       // console.log(modules);
 
         modules.forEach(moduleDir => {
+          //  console.log(moduleDir);
+           // var routes = require(`./modules/user/routes`);
             var routes = require(`./${modulesDir}/${moduleDir}/routes`);
+           // console.log(routes);
             Object.keys(routes).forEach(route => {
                 app.use(`/${route}`, routes[route]);
             });
         });
     });
+    
+    
+    
 }

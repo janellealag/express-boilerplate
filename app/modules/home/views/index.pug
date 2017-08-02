@@ -2,13 +2,48 @@
 extends ../../../templates/master.pug
 
 //- This is how we insert dynamic content to extended templates
+
 block content
-    h1.title Welcome to ExpressJS!
-    p If you see a list of users below, then that means you have successfully queried data from the database.
+    
+    h1.title <center><font size="10"> Welcome to WagTales! </font></center>
+    h2 <center><font size="5"> The place for all dog lovers. Sign up your dog today! </font></center>
+    
+    br
+    br
+    p Your dog companion app. Everything you need as a dog lover and dog owner.
+    br
+    | <strong> About </strong>
+    br
+    |   Note: This is just a copy from wagtales.com.ph :)
+    br
+    |   Wagtales is an online community created to gather all dog owners and lovers. Our goal
+    |   is to make dogs happy and to build an all in one service to satisfy you and your furry buddy's needs.
+    
     hr
-    h3.title Users
-    ul
+    br
+
+    h3.title List of Dog(s) who already signed up:
+    p <strong>Name &nbsp Age &nbsp Breed</strong>
+    ol
         //- This is how we iterate through arrays and access
         //- their elements
         each user in users
-            li= `${user.id} - ${user.name} - ${user.age}`
+            li= `${user.name} -- ${user.age} -- ${user.breed}`
+            
+    br
+    br
+    hr
+    
+    
+    form(method="GET" action="/users/new")
+        input(type="submit" value="Add Dog")
+        
+    br
+    
+    form(method="GET" action="/users/search")
+        input(type="submit" value="Update your Dog's Info")
+        
+    br
+    
+    form(method="GET" action="/users/delete")
+        input(type="submit" value="Delete a Dog from List")

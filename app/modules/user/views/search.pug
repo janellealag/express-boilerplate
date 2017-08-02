@@ -1,0 +1,19 @@
+extends ../../../templates/master.pug
+
+block content
+
+    h3.title List of Dog(s):
+    ol
+        //- This is how we iterate through arrays and access
+        //- their elements
+        each user in users
+            li= `${user.name}`
+            
+    hr
+    hr
+    
+    form(method="POST" action="/users/search")
+        .field
+            .control
+                input.input(type="text" placeholder="Search the name you want to update" name="search")
+        input(type="submit" value="search")
